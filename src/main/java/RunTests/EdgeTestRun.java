@@ -7,7 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 public class EdgeTestRun {
 
 	public static void main(String[] args) {
-		System.setProperty("webdriver.edge.driver", "C:/Users/ISMAIL/utilities/msedgedriver.exe");
+		System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
 
 		driver.get("https://rahulshettyacademy.com/#index");
@@ -16,8 +16,7 @@ public class EdgeTestRun {
 		String url = driver.getCurrentUrl();
 		System.out.println("URL of the page is: " + url);
 
-		driver.close();// Only close the current window
-		//driver.quit();// This will close all associated window opened by selenium
+		driver.quit();// This will close all associated window opened by selenium
 
 	}
 
