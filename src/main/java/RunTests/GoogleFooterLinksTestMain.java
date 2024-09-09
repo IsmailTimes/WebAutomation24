@@ -63,7 +63,8 @@ public class GoogleFooterLinksTestMain {
 		Thread.sleep(5000);
 
 		driver.quit();
-		driver = new ChromeDriver();
+		
+		/*driver = new ChromeDriver();
 		driver.get("https://policies.google.com/terms?hl=en&fg=1");
 		if(driver.getPageSource().contains("GOOGLE TERMS OF SERVICE")) 
 		{
@@ -73,8 +74,52 @@ public class GoogleFooterLinksTestMain {
 			System.out.println("The Terms of Service page does NOT work");
 		}
 
-		driver.quit();// This will close all associated window opened by Selenium
+		driver.quit();// This will close all associated window opened by Selenium */
+		
+		driver = new ChromeDriver();
+		driver.get("https://google.com");
 
+		driver.findElement(By.xpath("/html/body/div[1]/div[6]/div[1]/div[3]/span/span/g-popup/div[1]/div")).click();
+		if(driver.getPageSource().contains("Settings")) 
+		{
+			System.out.println("The Search Settings page works");
+		}
+		else {
+			System.out.println("The Search Settings page does NOT work");
+			
+		}
+		
+		
+		
+		driver.quit();// This will close all associated window opened by Selenium
+		
+		
+		
+		
+		
+		driver = new ChromeDriver();
+		driver.get("https://google.com");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("/html/body/div[1]/div[6]/div[1]/div[3]/span/span/g-popup/div[1]/div")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.linkText("Advanced Search")).click();
+		if(driver.getPageSource().contains("Find Pages with")) 
+		{
+			System.out.println("The Find Pages with page works");
+		}
+		else {
+			System.out.println("The Find Pages with page does NOT work");
+			
+		}
+		
+		driver.quit();
+		
+		
+		
+
+	
 	}
 
 }
