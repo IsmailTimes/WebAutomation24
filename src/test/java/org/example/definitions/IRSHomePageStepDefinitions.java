@@ -14,7 +14,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
  
-public class LoginStepdefinitions {
+public class IRSHomePageStepDefinitions {
  
     WebDriver driver;
      
@@ -25,20 +25,18 @@ public class LoginStepdefinitions {
     	
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
-//        driver = new ChromeDriver(options);
     	driver = new ChromeDriver(options);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); 
         
-      
  
     }
       
     
-    @Given("I go to Google Home page")
-    public void i_go_to_google_home_page() throws InterruptedException {
+    @Given("I go to IRS Home page")
+    public void i_go_to_irs_home_page() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-     	  driver.get("https://google.com");
+     	  driver.get("https://irs.gov");
         	String title = driver.getTitle();
     		System.out.println("Title of the web page is: " + title);
     		String url = driver.getCurrentUrl();
@@ -46,50 +44,49 @@ public class LoginStepdefinitions {
     		Thread.sleep(5000); // The open page will be closed in 5 seconds
 
     }
-    @When("I click on the Privacy link")
-    public void i_click_on_the_privacy_link() {
-    	driver.findElement(By.linkText("Privacy")).click();
+    @When("I click on the File link")
+    public void i_click_on_the_file_link() {
+    	driver.findElement(By.linkText("File")).click();
     	
     }
-    @Then("I see the Privacy page")
+    @Then("I see the File page")
     public void i_see_the_privacy_page() throws InterruptedException {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
-    	
-    	//Assert.assertEquals(2, 1+1);
-    	
-    	Assert.assertEquals(true, driver.getPageSource().contains("Privacy Policy"));
-    	
-    	/*
-    	if (driver.getPageSource().contains("Privacy Policy"))
-			System.out.println("The Privacy page works");
-		else
-			System.out.println("The Privacy page does NOT work");
-		
-    	*/
+           	
+    	Assert.assertEquals(true, driver.getPageSource().contains("File")); 	
     	
 		Thread.sleep(5000);
 		
     }
 
 
-    @When("I click on the Terms link")
-    public void i_click_on_the_terms_link() {
+    @When("I click on the Pay link")
+    public void i_click_on_the_pay_link() {
         // Write code here that turns the phrase above into concrete actions
-    	driver.findElement(By.linkText("Terms")).click();
+    	driver.findElement(By.linkText("Pay")).click();
     }
-    @Then("I see the Terms page")
-    public void i_see_the_terms_page() {
+    @Then("I see the Pay page")
+    public void i_see_the_pay_page() {
         // Write code here that turns the phrase above into concrete actions
      //Assert.assertEquals(1, 0);
-     Assert.assertEquals(true, driver.getPageSource().contains("Terms"));
+     Assert.assertEquals(true, driver.getPageSource().contains("Pay"));
     	
     }
 
 
-
-
-
+    @When("I click on the Refunds link")
+    public void i_click_on_the_refunds_link() {
+    	driver.findElement(By.linkText("Refunds")).click();
+    	
+    }
+    
+    @Then("I verify the Refunds page")
+    public void i_verify_the_refunds_page() throws InterruptedException {
+           	
+    	Assert.assertEquals(true, driver.getPageSource().contains("Refunds")); 	
+    	
+		Thread.sleep(5000);
+		
+    }
     @After
     public void teardown() {
  
