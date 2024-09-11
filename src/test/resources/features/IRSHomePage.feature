@@ -14,4 +14,15 @@ Then I see the Pay page
 
 Scenario: Refunds Link test
 When: I click on the Refunds link
-Then: I verify the Refunds page
+Then: I see the Refunds page
+
+Scenario Outline: Selecting different menu link and checking the corresponding page     
+	When I click on the "<menuLinkText>" link     
+	Then I see the "<menuLinkPage>" page 
+ 
+  Examples:        
+  |menuLinkText|menuLinkPage|
+  |File|File|
+  |Pay|Pay|
+  |Refunds|Refunds|
+  

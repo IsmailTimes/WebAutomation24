@@ -46,11 +46,12 @@ public class IRSHomePageStepDefinitions {
     }
     @When("I click on the File link")
     public void i_click_on_the_file_link() {
-    	driver.findElement(By.linkText("File")).click();
+    	driver.findElement(By.xpath("//*[@id=\"accessible-megamenu-nav-item-0\"]")).click();
+    // //*[@id="accessible-megamenu-nav-item-0"]
     	
     }
     @Then("I see the File page")
-    public void i_see_the_privacy_page() throws InterruptedException {
+    public void i_see_the_file_page() throws InterruptedException {
            	
     	Assert.assertEquals(true, driver.getPageSource().contains("File")); 	
     	
@@ -79,8 +80,8 @@ public class IRSHomePageStepDefinitions {
     	
     }
     
-    @Then("I verify the Refunds page")
-    public void i_verify_the_refunds_page() throws InterruptedException {
+    @Then("I see the Refunds page")
+    public void i_see_the_refunds_page() throws InterruptedException {
            	
     	Assert.assertEquals(true, driver.getPageSource().contains("Refunds")); 	
     	
